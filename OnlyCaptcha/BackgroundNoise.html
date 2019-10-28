@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Background Noise</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <style type="text/css">
+    body,html{
+    	height: 100%;
+    	width: 100%;
+    }
+    #captcha {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+    </style>
+</head>
+
+<body style="background-color: orange;display: flex;justify-content: center;align-items: center;">
+    <div id="yorubacaptcha_image" style="width: 320px; height: 57px;">
+        <canvas id="captcha"></canvas>
+    </div>
+    <script type="text/javascript" src="Drawer.js"></script>
+    <script type="text/javascript" src='jquery.js'></script>
+    <script type="text/javascript">
+    var chars = "tóyàáuioaísòdófẹṣù";
+    //var chars = "tẹ̀yuioẹ́pìaísòdóf";
+    var string_length = 5;
+    var captchastring = '';
+    for (var i = 0; i < string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        captchastring += chars.substring(rnum, rnum + 1);
+    }
+    console.log(captchastring);
+    var captcha = new Drawer(document.getElementById('captcha'));
+     captcha.clear();
+     captcha.drawText(captchastring,{x:15,y:100});
+     captcha.randomTextPositions("captcha",40);
+    </script>
+</body>
+
+</html>
