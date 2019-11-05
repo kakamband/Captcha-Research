@@ -1,16 +1,18 @@
+declare var $: any;
 class Drawer {
     canvas: HTMLCanvasElement
     ctx: CanvasRenderingContext2D
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
+        //$('<span>&nbsp;</span>').css('font-family', 'Distortion Dos Analogue').appendTo(document.body);
+        //$('#captcha').css('font-family', 'Distortion Dos Analogue');
     }
-    drawText(text, { x, y }, size?, angle?) {
+    drawText(text, { x, y }, size?, angle?, font = 'Arial') {
         this.ctx.fillStyle = 'red'
         size = size || 100;
-        this.ctx.font = `normal ${size}px Arial`;
+        this.ctx.font = `bold ${size}px ${font}`;
         if (angle) {
-            //this.ctx.textAlign='center'
             this.ctx.setTransform(1, 0, 0, 1, 0, 0);
             this.ctx.translate(x, y);
             this.ctx.rotate(angle * Math.PI / 180)
@@ -75,11 +77,23 @@ class Drawer {
         }
     }
     randomTextPositions(text, max: number) {
+        // for (var i = 0; i < max; i++) {
+        //     this.drawText(text, { x: (270 * Math.random())-40, y: 140 * Math.random() }, 20)
+        // }
         for (var i = 0; i < max; i++) {
-            this.drawText(text, { x: 270 * Math.random(), y: 140 * Math.random() }, 20)
+            this.drawText(text, { x: (i*5)-30, y: (i*18)%200}, 20)
         }
     }
     clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    randomCharacterSizes(text: string) {
+        for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            //this.ctx.scale(0.5, 0.5)
+            //
+            this.drawText(char, { x: 0 + (i * 57), y: 100 }, 50 + (Math.random() * 70))
+            this.ctx.restore()
+        }
     }
 }

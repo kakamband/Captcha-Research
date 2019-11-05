@@ -104,7 +104,7 @@ var generate=function() {
      var captcha = new Drawer(document.getElementById('captcha'));
      captcha.clear();
      captcha.drawText(captchastring,{x:30,y:100});
-     captcha.randomLines(7);
+     captcha.randomLines(20);
     //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
     //captcha.drawCircle({x:100,y:100},1,'red',true)
     document.getElementsByTagName("form")[0].onsubmit = function() {

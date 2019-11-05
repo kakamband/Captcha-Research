@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="set-cookie" content="cf_use_ob=0; expires=Wed, 14-May-14 17:30:29 GMT; path=/">
     <title>CAPTCHA Syatem</title>
     <meta http-equiv="X-UA-Compatible" content="IE=8">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -11,6 +10,7 @@
 </head>
 
 <body>
+    <span style="font-family: 'Distortion Dos Analogue';">&nbsp;</span>
     <div id="container">
         <div id="header">
             <div class="logo"></div>
@@ -51,14 +51,15 @@
                                                     <td colspan="4" class="yorubacaptcha_image_cell">
                                                         <center>
                                                             <div id="yorubacaptcha_image" style="width: 300px; height: 57px;">
-                                                                <label></label>
+                                                                <canvas id="captcha"></canvas>
+                                                                <!--<label></label>
                                                                 <label>
-                                                                    <span id="txtCaptchaDiv" style="color:#F00; font-size:60px; font-weight: bold; font-variant: normal; letter-spacing: 10pt; width: 120px; background-image:url(glitter_background_b4.gif_480_480_0_64000_0_1_0.gif);"></span>
+                                                                    <span id="txtCaptchaDiv" style="color:#F00; font-size:60px; font-weight: bold; font-variant: normal; letter-spacing: 10pt; width: 120px; background-image:url(glitter_background_b4.gif_480_480_0_64000_0_1_0.gif);"></span>-->
                                                                     <!-- this is where the script will place the generated code -->
                                                                     <input type="hidden" id="txtCaptcha" />
                                                                 </label>
                                                                 <!-- this is where the script will place a copy of the code for validation: this is a hidden field -->
-                                                                </label>
+                                                          
                                                             </div>
                                                         </center>
                                                     </td>
@@ -80,8 +81,8 @@
 </tbody></table>
 </form>
 </div>
-
-
+<script type="text/javascript" src='jquery.js'></script>
+<script type="text/javascript" src="Drawer.js"></script>
 <script type="text/javascript ">
 var generate=function() {
 	
@@ -98,8 +99,18 @@ var generate=function() {
 	console.log(captchastring);
 	
     document.getElementById("txtCaptcha").value = captchastring;
-    document.getElementById("txtCaptchaDiv").innerHTML = captchastring;
-
+    //document.getElementById("txtCaptchaDiv").innerHTML = captchastring;
+    //var captcha=new Drawer(document.getElementById("captcha"));
+     var captcha = new Drawer(document.getElementById('captcha'));
+     captcha.clear();
+     //this.canvas.style.fontFamily+=
+     //captcha.randomRotatedTexts(captchastring);
+    // captcha.drawCollapsedText(captchastring);
+     //captcha.randomTextPositions("captcha",20);
+     captcha.drawText(captchastring,{x:10,y:100},90,null,"Distortion Dos Analogue")
+     //captcha.randomLines(20);
+    //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
+    //captcha.drawCircle({x:100,y:100},1,'red',true)
     document.getElementsByTagName("form")[0].onsubmit = function() {
         var ret = checkform(this);
         if (ret != false) {
@@ -195,7 +206,7 @@ function MM_validateForm() { //v4.0
 <meta http-equiv="Content-Type " content="text/html; charset=utf-8 " />
 
 <title>
-<div align="center ">Virtual Keyboard</div>
+<div align="center " >Virtual Keyboard</div>
 </title>
 <div align="center ">
   <script>
@@ -218,7 +229,7 @@ document.getElementById('txtInput').value = txt;
   <body>
 </div>
 <div style="text-align:center; ">
-<h1>Virtual Keyboard</h1>
+<h1 >Virtual Keyboard</h1>
 <br/>
 <div id='image' style="padding:10px; ">
 <img src="Yoruba - Copy (2).png " usemap="#keys "></img>
@@ -286,5 +297,4 @@ document.getElementById('txtInput').value = txt;
 </div>
         <hr class="hidden">
 <br>
-<script type="text/javascript" src='jquery.js' ></script>
 </body></html>

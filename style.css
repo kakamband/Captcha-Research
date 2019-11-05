@@ -1,3 +1,7 @@
+ @font-face {
+     font-family: 'Distortion Dos Analogue';
+     src: url('fonts/Distortion Dos Analogue.otf');
+ }
  body {
      background: #072948 fixed;
      background-image: url(header.jpg);
