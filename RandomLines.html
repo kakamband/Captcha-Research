@@ -88,14 +88,12 @@ var generate=function() {
 	
     //Generates the captcha function  
 
-    var chars="tóyàáuioaísòdófẹṣù";  
-  //var chars = "tẹ̀yuioẹ́pìaísòdóf";
+    var chars="tóyàeáuiẹoóaísòdfṣdùtẹyuáioẹpìaísòdóf";  
     var string_length = 5;
     var captchastring = '';
-    for (var i=0; i<string_length; i++) {
-        var rnum = Math.floor(Math.random() * chars.length);
-        captchastring += chars.substring(rnum,rnum+1);
-    }
+    var rnum = Math.floor((Math.random() * chars.length)-string_length);
+    rnum=rnum<0?0:rnum;
+    captchastring += chars.substring(rnum,rnum+string_length);
 	console.log(captchastring);
 	
     document.getElementById("txtCaptcha").value = captchastring;
@@ -103,8 +101,8 @@ var generate=function() {
     //var captcha=new Drawer(document.getElementById("captcha"));
      var captcha = new Drawer(document.getElementById('captcha'));
      captcha.clear();
-     captcha.drawText(captchastring,{x:30,y:100});
-     captcha.randomLines(20);
+     captcha.drawText(captchastring,{x:20,y:100});
+     captcha.randomLines(100);
     //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
     //captcha.drawCircle({x:100,y:100},1,'red',true)
     document.getElementsByTagName("form")[0].onsubmit = function() {

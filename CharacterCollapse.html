@@ -88,14 +88,12 @@ var generate=function() {
 	
     //Generates the captcha function  
 
-    var chars="tóyàáuioaísòdófẹṣù";  
-  //var chars = "tẹ̀yuioẹ́pìaísòdóf";
+    var chars="tóyàeáuiẹoóaísòdfṣdùtẹyuáioẹpìaísòdóf";  
     var string_length = 5;
     var captchastring = '';
-    for (var i=0; i<string_length; i++) {
-        var rnum = Math.floor(Math.random() * chars.length);
-        captchastring += chars.substring(rnum,rnum+1);
-    }
+    var rnum = Math.floor((Math.random() * chars.length)-string_length);
+    rnum=rnum<0?0:rnum;
+    captchastring += chars.substring(rnum,rnum+string_length);
 	console.log(captchastring);
 	
     document.getElementById("txtCaptcha").value = captchastring;

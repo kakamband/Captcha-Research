@@ -6,9 +6,14 @@ var Drawer = /** @class */ (function () {
         //$('#captcha').css('font-family', 'Distortion Dos Analogue');
     }
     Drawer.prototype.drawText = function (text, _a, size, angle, font) {
-        var x = _a.x, y = _a.y;
+        var x = _a.x, y = _a.y, _b = _a.color, color = _b === void 0 ? null : _b;
         if (font === void 0) { font = 'Arial'; }
-        this.ctx.fillStyle = 'red';
+        if (color) {
+            this.ctx.fillStyle = color;
+        }
+        else {
+            this.ctx.fillStyle = 'red';
+        }
         size = size || 100;
         this.ctx.font = "bold " + size + "px " + font;
         if (angle) {
@@ -52,11 +57,11 @@ var Drawer = /** @class */ (function () {
     Drawer.prototype.randomLines = function (max) {
         for (var i = 0; i < max; i++) {
             this.drawLine({
-                x: 70 * Math.random(),
-                y: 100 * Math.random()
+                x: (i * 5),
+                y: 0
             }, {
-                x: 450 * Math.random(),
-                y: 200 * Math.random()
+                x: (i * 5),
+                y: 200
             }, 'red');
         }
     };
@@ -94,6 +99,20 @@ var Drawer = /** @class */ (function () {
             this.drawText(char, { x: 0 + (i * 57), y: 100 }, 50 + (Math.random() * 70));
             this.ctx.restore();
         }
+    };
+    Drawer.prototype.randomColorText = function (text) {
+        var colors = ['yellow', 'red', 'blue', 'green', 'orange', 'black', 'brown', 'gray'];
+        for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            //this.ctx.scale(0.5, 0.5)
+            //
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.drawText(char, { x: 0 + (i * 57), y: 100, color: color });
+            this.ctx.restore();
+        }
+    };
+    Drawer.prototype.canvasBackground = function (img) {
+        this.ctx.drawImage(img, 0, 0, 500, 200);
     };
     return Drawer;
 }());

@@ -8,8 +8,12 @@ class Drawer {
         //$('<span>&nbsp;</span>').css('font-family', 'Distortion Dos Analogue').appendTo(document.body);
         //$('#captcha').css('font-family', 'Distortion Dos Analogue');
     }
-    drawText(text, { x, y }, size?, angle?, font = 'Arial') {
-        this.ctx.fillStyle = 'red'
+    drawText(text, { x, y, color = null }, size?, angle?, font = 'Arial') {
+        if (color) {
+            this.ctx.fillStyle = color;
+        } else {
+            this.ctx.fillStyle = 'red'
+        }
         size = size || 100;
         this.ctx.font = `bold ${size}px ${font}`;
         if (angle) {
@@ -53,11 +57,11 @@ class Drawer {
     randomLines(max: number) {
         for (var i = 0; i < max; i++) {
             this.drawLine({
-                x: 70 * Math.random(),
-                y: 100 * Math.random()
+                x: (i * 5),
+                y: 0
             }, {
-                x: 450 * Math.random(),
-                y: 200 * Math.random()
+                x: (i * 5),
+                y: 200
             }, 'red')
         }
     }
@@ -81,7 +85,7 @@ class Drawer {
         //     this.drawText(text, { x: (270 * Math.random())-40, y: 140 * Math.random() }, 20)
         // }
         for (var i = 0; i < max; i++) {
-            this.drawText(text, { x: (i*5)-30, y: (i*18)%200}, 20)
+            this.drawText(text, { x: (i * 5) - 30, y: (i * 18) % 200 }, 20)
         }
     }
     clear() {
@@ -95,5 +99,19 @@ class Drawer {
             this.drawText(char, { x: 0 + (i * 57), y: 100 }, 50 + (Math.random() * 70))
             this.ctx.restore()
         }
+    }
+    randomColorText(text: string) {
+        const colors = ['yellow', 'red', 'blue', 'green', 'orange', 'black', 'brown', 'gray']
+        for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            //this.ctx.scale(0.5, 0.5)
+            //
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.drawText(char, { x: 0 + (i * 57), y: 100, color })
+            this.ctx.restore()
+        }
+    }
+    canvasBackground(img) {
+        this.ctx.drawImage(img, 0, 0, 500, 200);
     }
 }
