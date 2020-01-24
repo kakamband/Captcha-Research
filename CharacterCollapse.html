@@ -101,7 +101,9 @@ var generate=function() {
     //var captcha=new Drawer(document.getElementById("captcha"));
      var captcha = new Drawer(document.getElementById('captcha'));
      captcha.clear();
+     captcha.randomTextPositions("captcha",60);
      captcha.drawCollapsedText(captchastring);
+     
      //captcha.randomTextPositions("captcha",15);
      //captcha.randomLines(7);
     //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')

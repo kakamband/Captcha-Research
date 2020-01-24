@@ -1,0 +1,19 @@
+v0.1
+ - Initial release.
+
+v0.2
+ - More characters added.
+ - Added character ALT+178 which draws a 6×7 dots. It's usefult to create a background of dots.
+
+v0.3
+ - Added greek letters.
+
+v0.4
+ - Swap two greek letters (capital and small were swapped).
+ - Added some symbols.
+
+v0.5
+ - Added some cyrillic letters and a few symbols.
+
+v0.6
+ - Added some cyrillic letters.

@@ -2,6 +2,10 @@
      font-family: 'Distortion Dos Analogue';
      src: url('fonts/Distortion Dos Analogue.otf');
  }
+ @font-face {
+     font-family: 'Teleindicadores1';
+     src: url('fonts/Teleindicadores1.ttf');
+ }
  body {
      background: #072948 fixed;
      background-image: url(header.jpg);

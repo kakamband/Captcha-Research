@@ -54,7 +54,8 @@ var Drawer = /** @class */ (function () {
             this.drawText(char, { x: 35 + (i * 42), y: 100 + (Math.random() * 30) }, 120);
         }
     };
-    Drawer.prototype.randomLines = function (max) {
+    Drawer.prototype.randomLines = function (max, color) {
+        if (color === void 0) { color = 'blue'; }
         for (var i = 0; i < max; i++) {
             this.drawLine({
                 x: (i * 5),
@@ -62,7 +63,15 @@ var Drawer = /** @class */ (function () {
             }, {
                 x: (i * 5),
                 y: 200
-            }, 'red');
+            }, color);
+        }
+    };
+    Drawer.prototype.drawDistortedText = function (text) {
+        for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            this.ctx.setTransform(1, -0.2, 0, 1, 0, 0);
+            this.drawText(char, { x: 35 + (i * 60), y: 100 }, 120);
+            this.ctx.setTransform(1, 0, 0, 1, 0, 0);
         }
     };
     Drawer.prototype.randomScaledTexts = function (text) {
@@ -85,7 +94,7 @@ var Drawer = /** @class */ (function () {
         //     this.drawText(text, { x: (270 * Math.random())-40, y: 140 * Math.random() }, 20)
         // }
         for (var i = 0; i < max; i++) {
-            this.drawText(text, { x: (i * 5) - 30, y: (i * 18) % 200 }, 20);
+            this.drawText(text, { x: (i * 5) - 30, y: (i * 18) % 200, color: 'blue' }, 20);
         }
     };
     Drawer.prototype.clear = function () {
@@ -113,6 +122,10 @@ var Drawer = /** @class */ (function () {
     };
     Drawer.prototype.canvasBackground = function (img) {
         this.ctx.drawImage(img, 0, 0, 500, 200);
+    };
+    Drawer.prototype.backgroundColor = function (color) {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     };
     return Drawer;
 }());

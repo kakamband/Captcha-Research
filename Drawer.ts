@@ -54,7 +54,7 @@ class Drawer {
             this.drawText(char, { x: 35 + (i * 42), y: 100 + (Math.random() * 30) }, 120)
         }
     }
-    randomLines(max: number) {
+    randomLines(max: number,color='blue') {
         for (var i = 0; i < max; i++) {
             this.drawLine({
                 x: (i * 5),
@@ -62,7 +62,15 @@ class Drawer {
             }, {
                 x: (i * 5),
                 y: 200
-            }, 'red')
+            }, color)
+        }
+    }
+    drawDistortedText(text:string){
+        for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            this.ctx.setTransform(1, -0.2, 0, 1, 0, 0);
+            this.drawText(char, { x: 35 + (i * 60), y: 100 }, 120)
+            this.ctx.setTransform(1, 0, 0, 1, 0, 0);
         }
     }
     randomScaledTexts(text: string) {
@@ -85,7 +93,7 @@ class Drawer {
         //     this.drawText(text, { x: (270 * Math.random())-40, y: 140 * Math.random() }, 20)
         // }
         for (var i = 0; i < max; i++) {
-            this.drawText(text, { x: (i * 5) - 30, y: (i * 18) % 200 }, 20)
+            this.drawText(text, { x: (i * 5) - 30, y: (i * 18) % 200, color: 'blue' }, 20)
         }
     }
     clear() {
@@ -113,5 +121,9 @@ class Drawer {
     }
     canvasBackground(img) {
         this.ctx.drawImage(img, 0, 0, 500, 200);
+    }
+    backgroundColor(color){
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }

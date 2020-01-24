@@ -8,6 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=8">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        var image = new Image()
+        image.src = "color.jpg";
+    </script>
 </head>
 
 <body>
@@ -87,6 +91,7 @@
 var generate=function() {
 	
     //Generates the captcha function  
+
     var chars="tóyàeáuiẹoóaísòdfṣdùtẹyuáioẹpìaísòdóf";  
     var string_length = 5;
     var captchastring = '';
@@ -100,9 +105,13 @@ var generate=function() {
     //var captcha=new Drawer(document.getElementById("captcha"));
      var captcha = new Drawer(document.getElementById('captcha'));
      captcha.clear();
-     captcha.randomTextPositions("captcha",60);
-     captcha.drawText(captchastring,{x:20,y:100});
+     image.onload=function () {
+        captcha.canvasBackground(image)
+        captcha.drawCollapsedText(captchastring);
+     }
      
+     
+     //captcha.randomTextPositions("captcha",15);
      //captcha.randomLines(7);
     //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
     //captcha.drawCircle({x:100,y:100},1,'red',true)
