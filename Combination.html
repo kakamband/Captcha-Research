@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -42,10 +43,13 @@
                     <tr>
                         <td class="trow1">AnimalHealth wants to verify that you're a human.
                             <br>
-                            <form class="challenge-form" id="challenge-form" action="http://fcahptib.edu.ng" method="get">
-                                <div id="yorubacaptcha_widget_div" class=" yorubacaptcha_nothad_incorrect_sol yorubacaptcha_isnot_showing_audio">
+                            <form class="challenge-form" id="challenge-form" action="http://fcahptib.edu.ng"
+                                method="get">
+                                <div id="yorubacaptcha_widget_div"
+                                    class=" yorubacaptcha_nothad_incorrect_sol yorubacaptcha_isnot_showing_audio">
                                     <div id="yorubacaptcha_area" style="width:100px;padding: 10px;margin: auto;">
-                                        <table id="yorubacaptcha_table" class="yorubacaptchatable yorubacaptcha_theme_red">
+                                        <table id="yorubacaptcha_table"
+                                            class="yorubacaptchatable yorubacaptcha_theme_red">
                                             <tbody>
                                                 <tr>
                                                     <td colspan="6" class="yorubacaptcha_r1_c1"></td>
@@ -54,16 +58,17 @@
                                                     <td class="yorubacaptcha_r2_c1"></td>
                                                     <td colspan="4" class="yorubacaptcha_image_cell">
                                                         <center>
-                                                            <div id="yorubacaptcha_image" style="width: 300px; height: 57px;">
+                                                            <div id="yorubacaptcha_image"
+                                                                style="width: 300px; height: 57px;">
                                                                 <canvas id="captcha"></canvas>
                                                                 <!--<label></label>
                                                                 <label>
                                                                     <span id="txtCaptchaDiv" style="color:#F00; font-size:60px; font-weight: bold; font-variant: normal; letter-spacing: 10pt; width: 120px; background-image:url(glitter_background_b4.gif_480_480_0_64000_0_1_0.gif);"></span>-->
-                                                                    <!-- this is where the script will place the generated code -->
-                                                                    <input type="hidden" id="txtCaptcha" />
+                                                                <!-- this is where the script will place the generated code -->
+                                                                <input type="hidden" id="txtCaptcha" />
                                                                 </label>
                                                                 <!-- this is where the script will place a copy of the code for validation: this is a hidden field -->
-                                                          
+
                                                             </div>
                                                         </center>
                                                     </td>
@@ -76,24 +81,50 @@
                                                 </tr>
                                                 <tr align="">
                                                     <td rowspan="3" class="yorubacaptcha_r4_c1" height="49">
-                                                        <div class="yorubacaptcha_input_area" align="center"> <span id="yorubacaptcha_challenge_field_holder" style="display: block;"><input type="hidden" name="yorubacaptcha_challenge_field" id="yorubacaptcha_challenge_field"></span>
-                                                            <input name="yorubacaptcha_response_field" type="text" id="txtInput" size="25" style="width:125px; height:25px;margin:4px;" autocorrect=" off " autocapitalize="off" placeholder="Type the text" autocomplete="off"> 
-<button type="submit" class="cf-captcha-submit style1 ">Submit</button>
-</div>
-</td>
-</tr>
-</tbody></table>
-</form>
-</div>
-<script type="text/javascript" src='jquery.js'></script>
-<script type="text/javascript" src='vanilla-fontspy.js'></script>
-<script type="text/javascript" src="Drawer.js"></script>
-<script type="text/javascript" src="shared.js"></script>
-<script type="text/javascript ">
+                                                        <div class="yorubacaptcha_input_area" align="center"> <span
+                                                                id="yorubacaptcha_challenge_field_holder"
+                                                                style="display: block;"><input type="hidden"
+                                                                    name="yorubacaptcha_challenge_field"
+                                                                    id="yorubacaptcha_challenge_field"></span>
+                                                            <input name="yorubacaptcha_response_field" type="text"
+                                                                id="txtInput" size="25"
+                                                                style="width:125px; height:25px;margin:4px;"
+                                                                autocorrect=" off " autocapitalize="off"
+                                                                placeholder="Type the text" autocomplete="off">
+                                                            <button type="submit"
+                                                                class="cf-captcha-submit style1 ">Submit</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                            </form>
+        </div>
+        <script type="text/javascript" src='jquery.js'></script>
+        <script type="text/javascript" src='vanilla-fontspy.js'></script>
+        <script type="text/javascript" src="Drawer.js"></script>
+        <script type="text/javascript" src="shared.js"></script>
+        <script type="text/javascript ">
 var generate=function() {
 	
     //Generates the captcha function  
-
+    var captchatypes=[
+        'character_collapse_no_bg',
+        'character_collapse_with_bg',
+        'character_collapse_with_bg_noise',
+        'text_distortion_no_bg',
+        'text_distortion_with_bg',
+        'text_distortion_with_bg_noise',
+        'random_lines_no_bg',
+        'random_lines_with_bg',
+        'character_fragmentation_no_bg',
+        'character_fragmentation_with_bg',
+        'character_fragmentation_with_bg_noise',
+        'colored_texts',
+        'colored_texts_with_bg',
+        'background_noise_no_bg',
+        'coloured_background_noise_coloured_characters'
+    ];
     var chars="ṣtóyàeáuáiẹoóaísòdófṣdùtẹyìuáióoẹpìaísòdófí";  
     var words=[
         'ṣtóyà',
@@ -127,7 +158,8 @@ var generate=function() {
      captcha.clear();
     
      //captcha.drawDistortedText(captchastring);
-     drawCaptcha('coloured_background_noise_coloured_characters', captcha, captchastring)
+     var captchaType=captchatypes[Math.floor(Math.random()*captchatypes.length)];
+     drawCaptcha(captchaType, captcha, captchastring)
      //this.canvas.style.fontFamily+=
      //captcha.randomRotatedTexts(captchastring);
     // captcha.drawCollapsedText(captchastring);
@@ -226,105 +258,106 @@ function MM_validateForm() { //v4.0
 
 
         <div align="center "><br>
-          <div class="bottommenu ">
-          <div>
-          <!DOCTYPE>
-          <html xmlns="http://www.w3.org/1999/xhtml ">
-          <head>
-        </div>
+            <div class="bottommenu ">
+                <div>
+                    <!DOCTYPE>
+                    <html xmlns="http://www.w3.org/1999/xhtml ">
 
-<meta http-equiv="Content-Type " content="text/html; charset=utf-8 " />
+                    <head>
+                </div>
 
-<title>
-<div align="center " >Virtual Keyboard</div>
-</title>
-<div align="center ">
-  <script>
-function clicked(val)
-{
-var txt;
-txt = document.getElementById('txtInput').value;
-if(val != 'B')
-{
-txt = txt + '' + val;
-}
-else
-{
-txt = txt.substr(0,(txt.length)-1);
-}
-document.getElementById('txtInput').value = txt;
-}
+                <meta http-equiv="Content-Type " content="text/html; charset=utf-8 " />
 
-</script>
-  <body>
-</div>
-<div style="text-align:center; ">
-<h1 >Virtual Keyboard</h1>
-<br/>
-<div id='image' style="padding:10px; ">
-<img src="Yoruba - Copy (2).png " usemap="#keys "></img>
-<map name="keys ">
-<area shape="rect " coords="39,1,74,36 " onClick="clicked( 'à'); "/>
-<area shape="rect " coords="75,1,112,34 " onClick="clicked( 'á'); "/>
-<area shape="rect " coords="112,3,148,37 " onClick="clicked( 'è'); "/>
-<area shape="rect " coords="149,1,183,33 " onClick="clicked( 'é'); "/>
-<area shape="rect " coords="187,2,220,36 " onClick="clicked( 'ẹ̀'); "/>
-<area shape="rect " coords="222,1,257,35 " onClick="clicked( 'ẹ́'); "/>
-<area shape="rect " coords="258,3,293,35 " onClick="clicked( 'ì'); "/>
-<area shape="rect " coords="295,1,329,36 " onClick="clicked( 'í'); "/>
-<area shape="rect " coords="330,1,367,36 " onClick="clicked( 'ò'); "/>
-<area shape="rect " coords="368,0,404,35 " onClick="clicked( 'ó'); "/>
+                <title>
+                    <div align="center ">Virtual Keyboard</div>
+                </title>
+                <div align="center ">
+                    <script>
+                        function clicked(val) {
+                            var txt;
+                            txt = document.getElementById('txtInput').value;
+                            if (val != 'B') {
+                                txt = txt + '' + val;
+                            }
+                            else {
+                                txt = txt.substr(0, (txt.length) - 1);
+                            }
+                            document.getElementById('txtInput').value = txt;
+                        }
 
-<area shape="rect " coords="403,3,438,33 " onClick="clicked( 'ọ̀'); "/>
-<area shape="rect " coords="439,3,474,33 " onClick="clicked( 'ọ́'); "/>
-<area shape="rect " coords="476,2,539,36 " onClick="clicked( 'B'); "/>
-<area shape="rect " coords="56,36,91,71 " onClick="clicked( 'gb'); "/>
-<area shape="rect " coords="92,36,129,70 " onClick="clicked( 'w'); "/>
-<area shape="rect " coords="130,37,164,70 " onClick="clicked( 'e'); "/>
-<area shape="rect " coords="165,36,202,71 " onClick="clicked( 'r'); "/>
-<area shape="rect " coords="203,37,239,71 " onClick="clicked( 't'); "/>
-<area shape="rect " coords="239,38,273,69 " onClick="clicked( 'y'); "/>
-<area shape="rect " coords="275,38,310,69 " onClick="clicked( 'u'); "/>
-<area shape="rect " coords="313,37,346,69 " onClick="clicked( 'i'); "/>
-<area shape="rect " coords="349,38,384,69 " onClick="clicked( 'o'); "/>
-<area shape="rect " coords="384,38,419,69 " onClick="clicked( 'p'); "/>
-<area shape="rect " coords="423,37,456,71 " onClick="clicked( 'ù'); "/>
-<area shape="rect " coords="459,37,491,70 " onClick="clicked( 'ú'); "/>
-<area shape="rect " coords="495,36,539,68 " onClick="clicked( '\\'); "/>
-<area shape="rect " coords="66,73,99,106 " onClick="clicked( 'a'); "/>
-<area shape="rect " coords="102,74,137,106 " onClick="clicked( 's'); "/>
-<area shape="rect " coords="139,73,174,107 " onClick="clicked( 'd'); "/>
+                    </script>
 
-<area shape="rect " coords="174,73,208,106 " onClick="clicked( 'f'); "/>
-<area shape="rect " coords="212,74,246,107 " onClick="clicked( 'g'); "/>
-<area shape="rect " coords="247,74,282,107 " onClick="clicked( 'h'); "/>
-<area shape="rect " coords="284,74,318,107 " onClick="clicked( 'j'); "/>
-<area shape="rect " coords="323,74,355,106 " onClick="clicked( 'k'); "/>
-<area shape="rect " coords="357,73,390,107 " onClick="clicked( 'l'); "/>
-<area shape="rect " coords="392,73,428,106 " onClick="clicked( ';'); "/>
-<area shape="rect " coords="431,73,463,107 " onClick="clicked( '\'');"/>
-<area shape="rect" coords="466,75,539,107" onClick="clicked('E');"/>
-<area shape="rect" coords="85,112,120,144" onClick="clicked('ṣ');"/>
-<area shape="rect" coords="120,112,157,142" onClick="clicked('ọ');"/>
-<area shape="rect" coords="158,112,192,142" onClick="clicked('c');"/>
-<area shape="rect" coords="193,111,228,142" onClick="clicked('ẹ');"/>
-<area shape="rect" coords="232,111,263,143" onClick="clicked('b');"/>
-<area shape="rect" coords="267,111,301,143" onClick="clicked('n');"/>
-<area shape="rect" coords="302,111,339,143" onClick="clicked('m');"/>
-<area shape="rect" coords="339,111,375,143" onClick="clicked(',');"/>
-<area shape="rect" coords="376,112,412,143" onClick="clicked('.');"/>
-<area shape="rect" coords="413,110,448,143" onClick="clicked('/');"/>
+                    <body>
+                </div>
+                <div style="text-align:center; ">
+                    <h1>Virtual Keyboard</h1>
+                    <br />
+                    <div id='image' style="padding:10px; ">
+                        <img src="Yoruba - Copy (2).png " usemap="#keys "></img>
+                        <map name="keys ">
+                            <area shape="rect " coords="39,1,74,36 " onClick="clicked( 'à'); " />
+                            <area shape="rect " coords="75,1,112,34 " onClick="clicked( 'á'); " />
+                            <area shape="rect " coords="112,3,148,37 " onClick="clicked( 'è'); " />
+                            <area shape="rect " coords="149,1,183,33 " onClick="clicked( 'é'); " />
+                            <area shape="rect " coords="187,2,220,36 " onClick="clicked( 'ẹ̀'); " />
+                            <area shape="rect " coords="222,1,257,35 " onClick="clicked( 'ẹ́'); " />
+                            <area shape="rect " coords="258,3,293,35 " onClick="clicked( 'ì'); " />
+                            <area shape="rect " coords="295,1,329,36 " onClick="clicked( 'í'); " />
+                            <area shape="rect " coords="330,1,367,36 " onClick="clicked( 'ò'); " />
+                            <area shape="rect " coords="368,0,404,35 " onClick="clicked( 'ó'); " />
 
-<area shape="rect" coords="83,159,431,192" onClick="clicked(' ');"/>
-</map>
-</div>
-</div>
+                            <area shape="rect " coords="403,3,438,33 " onClick="clicked( 'ọ̀'); " />
+                            <area shape="rect " coords="439,3,474,33 " onClick="clicked( 'ọ́'); " />
+                            <area shape="rect " coords="476,2,539,36 " onClick="clicked( 'B'); " />
+                            <area shape="rect " coords="56,36,91,71 " onClick="clicked( 'gb'); " />
+                            <area shape="rect " coords="92,36,129,70 " onClick="clicked( 'w'); " />
+                            <area shape="rect " coords="130,37,164,70 " onClick="clicked( 'e'); " />
+                            <area shape="rect " coords="165,36,202,71 " onClick="clicked( 'r'); " />
+                            <area shape="rect " coords="203,37,239,71 " onClick="clicked( 't'); " />
+                            <area shape="rect " coords="239,38,273,69 " onClick="clicked( 'y'); " />
+                            <area shape="rect " coords="275,38,310,69 " onClick="clicked( 'u'); " />
+                            <area shape="rect " coords="313,37,346,69 " onClick="clicked( 'i'); " />
+                            <area shape="rect " coords="349,38,384,69 " onClick="clicked( 'o'); " />
+                            <area shape="rect " coords="384,38,419,69 " onClick="clicked( 'p'); " />
+                            <area shape="rect " coords="423,37,456,71 " onClick="clicked( 'ù'); " />
+                            <area shape="rect " coords="459,37,491,70 " onClick="clicked( 'ú'); " />
+                            <area shape="rect " coords="495,36,539,68 " onClick="clicked( '\\'); " />
+                            <area shape="rect " coords="66,73,99,106 " onClick="clicked( 'a'); " />
+                            <area shape="rect " coords="102,74,137,106 " onClick="clicked( 's'); " />
+                            <area shape="rect " coords="139,73,174,107 " onClick="clicked( 'd'); " />
+
+                            <area shape="rect " coords="174,73,208,106 " onClick="clicked( 'f'); " />
+                            <area shape="rect " coords="212,74,246,107 " onClick="clicked( 'g'); " />
+                            <area shape="rect " coords="247,74,282,107 " onClick="clicked( 'h'); " />
+                            <area shape="rect " coords="284,74,318,107 " onClick="clicked( 'j'); " />
+                            <area shape="rect " coords="323,74,355,106 " onClick="clicked( 'k'); " />
+                            <area shape="rect " coords="357,73,390,107 " onClick="clicked( 'l'); " />
+                            <area shape="rect " coords="392,73,428,106 " onClick="clicked( ';'); " />
+                            <area shape="rect " coords="431,73,463,107 " onClick="clicked( '\'');" />
+                            <area shape="rect" coords="466,75,539,107" onClick="clicked('E');" />
+                            <area shape="rect" coords="85,112,120,144" onClick="clicked('ṣ');" />
+                            <area shape="rect" coords="120,112,157,142" onClick="clicked('ọ');" />
+                            <area shape="rect" coords="158,112,192,142" onClick="clicked('c');" />
+                            <area shape="rect" coords="193,111,228,142" onClick="clicked('ẹ');" />
+                            <area shape="rect" coords="232,111,263,143" onClick="clicked('b');" />
+                            <area shape="rect" coords="267,111,301,143" onClick="clicked('n');" />
+                            <area shape="rect" coords="302,111,339,143" onClick="clicked('m');" />
+                            <area shape="rect" coords="339,111,375,143" onClick="clicked(',');" />
+                            <area shape="rect" coords="376,112,412,143" onClick="clicked('.');" />
+                            <area shape="rect" coords="413,110,448,143" onClick="clicked('/');" />
+
+                            <area shape="rect" coords="83,159,431,192" onClick="clicked(' ');" />
+                        </map>
+                    </div>
+                </div>
 </body>
-</html></div
-            </div>
-            <p><br>
-  </p>
+
+</html>
+</div </div> <p><br>
+</p>
 </div>
-        <hr class="hidden">
+<hr class="hidden">
 <br>
-</body></html>
+</body>
+
+</html>
