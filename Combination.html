@@ -43,13 +43,10 @@
                     <tr>
                         <td class="trow1">AnimalHealth wants to verify that you're a human.
                             <br>
-                            <form class="challenge-form" id="challenge-form" action="http://fcahptib.edu.ng"
-                                method="get">
-                                <div id="yorubacaptcha_widget_div"
-                                    class=" yorubacaptcha_nothad_incorrect_sol yorubacaptcha_isnot_showing_audio">
+                            <form class="challenge-form" id="challenge-form" action="SolvedMessage.html" method="get">
+                                <div id="yorubacaptcha_widget_div" class=" yorubacaptcha_nothad_incorrect_sol yorubacaptcha_isnot_showing_audio">
                                     <div id="yorubacaptcha_area" style="width:100px;padding: 10px;margin: auto;">
-                                        <table id="yorubacaptcha_table"
-                                            class="yorubacaptchatable yorubacaptcha_theme_red">
+                                        <table id="yorubacaptcha_table" class="yorubacaptchatable yorubacaptcha_theme_red">
                                             <tbody>
                                                 <tr>
                                                     <td colspan="6" class="yorubacaptcha_r1_c1"></td>
@@ -58,8 +55,7 @@
                                                     <td class="yorubacaptcha_r2_c1"></td>
                                                     <td colspan="4" class="yorubacaptcha_image_cell">
                                                         <center>
-                                                            <div id="yorubacaptcha_image"
-                                                                style="width: 300px; height: 57px;">
+                                                            <div id="yorubacaptcha_image" style="width: 300px; height: 57px;">
                                                                 <canvas id="captcha"></canvas>
                                                                 <!--<label></label>
                                                                 <label>
@@ -81,220 +77,229 @@
                                                 </tr>
                                                 <tr align="">
                                                     <td rowspan="3" class="yorubacaptcha_r4_c1" height="49">
-                                                        <div class="yorubacaptcha_input_area" align="center"> <span
-                                                                id="yorubacaptcha_challenge_field_holder"
-                                                                style="display: block;"><input type="hidden"
+                                                        <div class="yorubacaptcha_input_area" align="center"> <span id="yorubacaptcha_challenge_field_holder" style="display: block;"><input type="hidden"
                                                                     name="yorubacaptcha_challenge_field"
                                                                     id="yorubacaptcha_challenge_field"></span>
-                                                            <input name="yorubacaptcha_response_field" type="text"
-                                                                id="txtInput" size="25"
-                                                                style="width:125px; height:25px;margin:4px;"
-                                                                autocorrect=" off " autocapitalize="off"
-                                                                placeholder="Type the text" autocomplete="off">
-                                                            <button type="submit"
-                                                                class="cf-captcha-submit style1 ">Submit</button>
+                                                            <input name="yorubacaptcha_response_field" type="text" id="txtInput" size="25" style="width:125px; height:25px;margin:4px;" autocorrect=" off " autocapitalize="off" placeholder="Type the text" autocomplete="off">
+                                                            <button type="submit" class="cf-captcha-submit style1 ">Submit</button>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                             </form>
-        </div>
-        <script type="text/javascript" src='jquery.js'></script>
-        <script type="text/javascript" src='vanilla-fontspy.js'></script>
-        <script type="text/javascript" src="Drawer.js"></script>
-        <script type="text/javascript" src="shared.js"></script>
-        <script type="text/javascript ">
-var generate=function() {
-	
-    //Generates the captcha function  
-    var captchatypes=[
-        'character_collapse_no_bg',
-        'character_collapse_with_bg',
-        'character_collapse_with_bg_noise',
-        'text_distortion_no_bg',
-        'text_distortion_with_bg',
-        'text_distortion_with_bg_noise',
-        'random_lines_no_bg',
-        'random_lines_with_bg',
-        'character_fragmentation_no_bg',
-        'character_fragmentation_with_bg',
-        'character_fragmentation_with_bg_noise',
-        'colored_texts',
-        'colored_texts_with_bg',
-        'background_noise_no_bg',
-        'coloured_background_noise_coloured_characters'
-    ];
-    var chars="ṣtóyàeáuáiẹoóaísòdófṣdùtẹyìuáióoẹpìaísòdófí";  
-    var words=[
-        'ṣtóyà',
-        'àeáuá',
-        'áiẹoó',
-        'óaísò',
-        'ófṣdù',
-        'ùtẹyì',
-        'ìuáió',
-        'óoẹpì',
-        'ìaísò',
-        'òdófí',
-        'óyàeá',
-        'ẹoóaí',
-        'ísòdó',
-        'ófṣdù'
-    ];
-    var captchastring=words[Math.floor(Math.random()*words.length)];
-    // console.log(randomWord)
-    // var string_length = 5;
-    // var captchastring = '';
-    // var rnum = Math.floor((Math.random() * chars.length)-string_length);
-    // rnum=rnum<0?0:rnum;
-    // captchastring += chars.substring(rnum,rnum+string_length);
-	// console.log(captchastring);
-	
-    document.getElementById("txtCaptcha").value = captchastring;
-    //document.getElementById("txtCaptchaDiv").innerHTML = captchastring;
-    //var captcha=new Drawer(document.getElementById("captcha"));
-     var captcha = new Drawer(document.getElementById('captcha'));
-     captcha.clear();
-    
-     //captcha.drawDistortedText(captchastring);
-     var captchaType=captchatypes[Math.floor(Math.random()*captchatypes.length)];
-     drawCaptcha(captchaType, captcha, captchastring)
-     //this.canvas.style.fontFamily+=
-     //captcha.randomRotatedTexts(captchastring);
-    // captcha.drawCollapsedText(captchastring);
-     //captcha.randomTextPositions("captcha",20);
-     //image.onload=function () {
-        // fontSpy(["Teleindicadores1"], function (loadedFonts) {
-        //     //captcha.canvasBackground(image);
-        //     captcha.drawText(captchastring,{x:5,y:100},130,null,"Teleindicadores1")
-        // });
-    //};
-     //captcha.randomLines(20);
-    //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
-    //captcha.drawCircle({x:100,y:100},1,'red',true)
-    document.getElementsByTagName("form")[0].onsubmit = function() {
-        var ret = checkform(this);
-        if (ret != false) {
-            MM_validateForm('name', '', 'R', 'email', '', 'RisEmail');
-            return document.MM_returnValue;
-        } else {
-            return false;
-        }
-    };
-};
-generate();
+                            </div>
+                            <script type="text/javascript" src='jquery.js'></script>
+                            <script type="text/javascript" src='vanilla-fontspy.js'></script>
+                            <script type="text/javascript" src="Drawer.js"></script>
+                            <script type="text/javascript" src="shared.js"></script>
+                            <script type="text/javascript ">
+                                var startSolvingTime = startTimeRec();
+                                var generate = function() {
+
+                                    //Generates the captcha function  
+                                    var captchatypes = [
+                                        'character_collapse_no_bg',
+                                        'character_collapse_with_bg',
+                                        'character_collapse_with_bg_noise',
+                                        'text_distortion_no_bg',
+                                        'text_distortion_with_bg',
+                                        'text_distortion_with_bg_noise',
+                                        'random_lines_no_bg',
+                                        'random_lines_with_bg',
+                                        'character_fragmentation_no_bg',
+                                        'character_fragmentation_with_bg',
+                                        'character_fragmentation_with_bg_noise',
+                                        'colored_texts',
+                                        'colored_texts_with_bg',
+                                        'background_noise_no_bg',
+                                        'coloured_background_noise_coloured_characters'
+                                    ];
+                                    var chars = "ṣtóyàeáuáiẹoóaísòdófṣdùtẹyìuáióoẹpìaísòdófí";
+                                    var words = [
+                                        'ṣtóyà',
+                                        'àeáuá',
+                                        'áiẹoó',
+                                        'óaísò',
+                                        'ófṣdù',
+                                        'ùtẹyì',
+                                        'ìuáió',
+                                        'óoẹpì',
+                                        'ìaísò',
+                                        'òdófí',
+                                        'óyàeá',
+                                        'ẹoóaí',
+                                        'ísòdó',
+                                        'ófṣdù'
+                                    ];
+                                    var captchastring = words[Math.floor(Math.random() * words.length)];
+                                    // console.log(randomWord)
+                                    // var string_length = 5;
+                                    // var captchastring = '';
+                                    // var rnum = Math.floor((Math.random() * chars.length)-string_length);
+                                    // rnum=rnum<0?0:rnum;
+                                    // captchastring += chars.substring(rnum,rnum+string_length);
+                                    // console.log(captchastring);
+
+                                    document.getElementById("txtCaptcha").value = captchastring;
+                                    //document.getElementById("txtCaptchaDiv").innerHTML = captchastring;
+                                    //var captcha=new Drawer(document.getElementById("captcha"));
+                                    var captcha = new Drawer(document.getElementById('captcha'));
+                                    captcha.clear()
+
+                                    //captcha.drawDistortedText(captchastring);
+                                    var captchaType = captchatypes[Math.floor(Math.random() * captchatypes.length)];
+                                    console.log(captchaType)
+                                    drawCaptcha(captchaType, captcha, captchastring)
+                                        //this.canvas.style.fontFamily+=
+                                        //captcha.randomRotatedTexts(captchastring);
+                                        // captcha.drawCollapsedText(captchastring);
+                                        //captcha.randomTextPositions("captcha",20);
+                                        //image.onload=function () {
+                                        // fontSpy(["Teleindicadores1"], function (loadedFonts) {
+                                        //     //captcha.canvasBackground(image);
+                                        //     captcha.drawText(captchastring,{x:5,y:100},130,null,"Teleindicadores1")
+                                        // });
+                                        //};
+                                        //captcha.randomLines(20);
+                                        //captcha.drawLine({x:0.4,y:0.2},{x:340.44,y:404.44},'red')
+                                        //captcha.drawCircle({x:100,y:100},1,'red',true)
+                                    document.getElementsByTagName("form")[0].onsubmit = function() {
+                                        var startResponseTime = startTimeRec();
+                                        var ret = checkform(this);
+                                        if (ret != false) {
+                                            MM_validateForm('name', '', 'R', 'email', '', 'RisEmail');
+                                            //return document.MM_returnValue;
+                                            var solvingTime = endTimeRec(startSolvingTime);
+                                            var responseTime = endTimeRec(startResponseTime);
+                                            console.log(`Response time ${responseTime} Millisecond(s)`)
+                                            console.log(`Solving time ${solvingTime} Millisecond(s)`)
+                                                // alert(`Response time ${responseTime} Millisecond(s)\nSolving time ${solvingTime} Millisecond(s)
+                                                // `)
+                                            $.post('save.php', {
+                                                'captcha_type': captchaType,
+                                                solving_time: solvingTime,
+                                                response_time: responseTime
+                                            }).then(() => {
+                                                document.location = `SolvedMessage.html?captcha_type=${captchaType}&solving_time=${solvingTime}&response_time=${responseTime}`;
+                                            })
+
+                                            return false;
+                                        } else {
+                                            return false;
+                                        }
+                                    };
+                                };
+                                generate();
 
 
-function checkform(theform) {
-    var why = " ";
+                                function checkform(theform) {
+                                    var why = " ";
 
-    if (theform.txtInput.value.trim() == "") {
-        why += "- Security code should not be empty.\n ";
-    }
-    if (theform.txtInput.value != " ") {
-        if (ValidCaptcha(theform.txtInput.value) == false) {
-            why += "- Security code did not match.\n ";
-        }
-    }
-    if (why != " ") {
-        alert(why);
-        document.getElementById('txtInput').value='';
-        generate();
-        return false;
-    }
-}
+                                    if (theform.txtInput.value.trim() == "") {
+                                        why += "- Security code should not be empty.\n ";
+                                    }
+                                    if (theform.txtInput.value != " ") {
+                                        if (ValidCaptcha(theform.txtInput.value) == false) {
+                                            why += "- Security code did not match.\n ";
+                                        }
+                                    }
+                                    if (why != " ") {
+                                        alert(why);
+                                        document.getElementById('txtInput').value = '';
+                                        generate();
+                                        return false;
+                                    }
+                                }
 
-// Validate the Entered input aganist the generated security code function   
+                                // Validate the Entered input aganist the generated security code function   
 
-function ValidCaptcha() {
-    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-    var str2 = removeSpaces(document.getElementById('txtInput').value);
-    if (str1 == str2) {
-        return true;
-    } else {
-        return false;
-    }
-}
+                                function ValidCaptcha() {
+                                    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+                                    var str2 = removeSpaces(document.getElementById('txtInput').value);
+                                    if (str1 == str2) {
+                                        return true;
+                                    } else {
+                                        return false;
+                                    }
+                                }
 
-// Remove the spaces from the entered and generated code
+                                // Remove the spaces from the entered and generated code
 
-function removeSpaces(string) {
-    return string.split(' ').join('');
-}
+                                function removeSpaces(string) {
+                                    return string.split(' ').join('');
+                                }
 
-function MM_validateForm() { //v4.0
-    if (document.getElementById) {
-        var i, p, q, nm, test, num, min, max, errors = '',
-            args = MM_validateForm.arguments;
-        for (i = 0; i < (args.length - 2); i += 3) {
-            test = args[i + 2];
-            val = document.getElementById(args[i]);
-            if (val) {
-                nm = val.name;
-                if ((val = val.value) != " ") {
-                    if (test.indexOf('isEmail') != -1) {
-                        p = val.indexOf('@');
-                        if (p < 1 || p == (val.length - 1)) errors += '- ' + nm + ' must contain an e-mail address.\n';
-                    } else if (test != 'R') {
-                        num = parseFloat(val);
-                        if (isNaN(val)) errors += '- ' + nm + ' must contain a number.\n';
-                        if (test.indexOf('inRange') != -1) {
-                            p = test.indexOf(':');
-                            min = test.substring(8, p);
-                            max = test.substring(p + 1);
-                            if (num < min || max < num) errors += '- ' + nm + ' must contain a number between ' + min + ' and ' + max + '.\n';
-        
-                }
-                    }
-                } else if (test.charAt(0) == 'R') errors += '- ' + nm + ' is required.\n';
-            }
-        }
-        if (errors) alert('The following error(s) occurred:\n' + errors);
-        document.MM_returnValue = (errors == '');
-    }
-}
-</script>
+                                function MM_validateForm() { //v4.0
+                                    if (document.getElementById) {
+                                        var i, p, q, nm, test, num, min, max, errors = '',
+                                            args = MM_validateForm.arguments;
+                                        for (i = 0; i < (args.length - 2); i += 3) {
+                                            test = args[i + 2];
+                                            val = document.getElementById(args[i]);
+                                            if (val) {
+                                                nm = val.name;
+                                                if ((val = val.value) != " ") {
+                                                    if (test.indexOf('isEmail') != -1) {
+                                                        p = val.indexOf('@');
+                                                        if (p < 1 || p == (val.length - 1)) errors += '- ' + nm + ' must contain an e-mail address.\n';
+                                                    } else if (test != 'R') {
+                                                        num = parseFloat(val);
+                                                        if (isNaN(val)) errors += '- ' + nm + ' must contain a number.\n';
+                                                        if (test.indexOf('inRange') != -1) {
+                                                            p = test.indexOf(':');
+                                                            min = test.substring(8, p);
+                                                            max = test.substring(p + 1);
+                                                            if (num < min || max < num) errors += '- ' + nm + ' must contain a number between ' + min + ' and ' + max + '.\n';
+
+                                                        }
+                                                    }
+                                                } else if (test.charAt(0) == 'R') errors += '- ' + nm + ' is required.\n';
+                                            }
+                                        }
+                                        if (errors) alert('The following error(s) occurred:\n' + errors);
+                                        document.MM_returnValue = (errors == '');
+                                    }
+                                }
+                            </script>
 
 
-        <div align="center "><br>
-            <div class="bottommenu ">
-                <div>
-                    <!DOCTYPE>
-                    <html xmlns="http://www.w3.org/1999/xhtml ">
+                            <div align="center "><br>
+                                <div class="bottommenu ">
+                                    <div>
+                                        <!DOCTYPE>
+                                        <html xmlns="http://www.w3.org/1999/xhtml ">
 
-                    <head>
-                </div>
+                                        <head>
+                                    </div>
 
-                <meta http-equiv="Content-Type " content="text/html; charset=utf-8 " />
+                                    <meta http-equiv="Content-Type " content="text/html; charset=utf-8 " />
 
-                <title>
-                    <div align="center ">Virtual Keyboard</div>
-                </title>
-                <div align="center ">
-                    <script>
-                        function clicked(val) {
-                            var txt;
-                            txt = document.getElementById('txtInput').value;
-                            if (val != 'B') {
-                                txt = txt + '' + val;
-                            }
-                            else {
-                                txt = txt.substr(0, (txt.length) - 1);
-                            }
-                            document.getElementById('txtInput').value = txt;
-                        }
+                                    <title>
+                                        <div align="center ">Virtual Keyboard</div>
+                                    </title>
+                                    <div align="center ">
+                                        <script>
+                                            function clicked(val) {
+                                                var txt;
+                                                txt = document.getElementById('txtInput').value;
+                                                if (val != 'B') {
+                                                    txt = txt + '' + val;
+                                                } else {
+                                                    txt = txt.substr(0, (txt.length) - 1);
+                                                }
+                                                document.getElementById('txtInput').value = txt;
+                                            }
+                                        </script>
 
-                    </script>
-
-                    <body>
-                </div>
-                <div style="text-align:center; ">
-                    <h1>Virtual Keyboard</h1>
-                    <br />
-                    <div id='image' style="padding:10px; ">
-                        <img src="Yoruba - Copy (2).png " usemap="#keys "></img>
-                        <map name="keys ">
+                                        <body>
+                                    </div>
+                                    <div style="text-align:center; ">
+                                        <h1>Virtual Keyboard</h1>
+                                        <br />
+                                        <div id='image' style="padding:10px; ">
+                                            <img src="Yoruba - Copy (2).png " usemap="#keys "></img>
+                                            <map name="keys ">
                             <area shape="rect " coords="39,1,74,36 " onClick="clicked( 'à'); " />
                             <area shape="rect " coords="75,1,112,34 " onClick="clicked( 'á'); " />
                             <area shape="rect " coords="112,3,148,37 " onClick="clicked( 'è'); " />
@@ -348,16 +353,17 @@ function MM_validateForm() { //v4.0
 
                             <area shape="rect" coords="83,159,431,192" onClick="clicked(' ');" />
                         </map>
-                    </div>
-                </div>
-</body>
+                                        </div>
+                                    </div>
+                                    </body>
 
-</html>
-</div </div> <p><br>
-</p>
-</div>
-<hr class="hidden">
-<br>
+                                    </html>
+                                </div </div>
+                                <p><br>
+                                </p>
+                            </div>
+                            <hr class="hidden">
+                            <br>
 </body>
 
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>captcha</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: rgb(242, 244, 248);
+            display: flex;
+        }
+        
+        .card {
+            box-shadow: 1px 1px 20px #ddd9d9;
+            background: #FFFFFF;
+            border: none;
+            margin: auto;
+            min-height: 200px;
+            width: 400px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .card .card-heading {
+            padding-top: 10px;
+            height: 35px;
+            background: #FFFFFF;
+            border-bottom: 0;
+            font-size: 25px;
+            font-family: Arial, san-serif;
+            font-weight: bold;
+            color: #7b7b7b;
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        .card .card-description {
+            margin-top: 30px;
+            color: gray;
+            font-size: 15px;
+            font-family: Arial, san-serif;
+        }
+        
+        hr {
+            border: none;
+            border-bottom: 1px solid silver;
+        }
+    </style>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+</head>
+
+<body style="">
+    <div class="card">
+        <div class="card-heading">
+            Success
+        </div>
+        <hr>
+        <div class="card-description">
+            You have successfully solved the captcha!<br> Your result has been saved to the database
+            <br>
+            <br>
+            <script>
+                document.write(`Captcha Type: ${getParameterByName('captcha_type')} <br>Solving Time: ${getParameterByName('solving_time')} Millisecond(s) <br> Response Time: ${getParameterByName('response_time')} Millisecond(s) `)
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>

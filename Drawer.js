@@ -1,4 +1,4 @@
-var Drawer = /** @class */ (function () {
+var Drawer = (function () {
     function Drawer(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
@@ -98,7 +98,7 @@ var Drawer = /** @class */ (function () {
         }
     };
     Drawer.prototype.clear = function () {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.clearRect(-10, -10, 1000, 1000);
     };
     Drawer.prototype.randomCharacterSizes = function (text) {
         for (var i = 0; i < text.length; i++) {
@@ -128,4 +128,4 @@ var Drawer = /** @class */ (function () {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     };
     return Drawer;
-}());
+})();
