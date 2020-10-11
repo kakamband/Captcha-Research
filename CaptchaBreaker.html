@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Background Noise</title>
+    <meta name="viewport"
+        content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        .loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 10000000;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loader-image{
+            width: 50px;
+            height: 50px;
+        }
+
+        #captcha {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+
+        @font-face {
+            font-family: 'Distortion Dos Analogue';
+            src: url('fonts/Distortion Dos Analogue.otf');
+        }
+
+        @font-face {
+            font-family: 'Teleindicadores1';
+            src: url('fonts/Teleindicadores1.ttf');
+        }
+    </style>
+    <script>
+        var image = new Image()
+        image.src = "color.jpg";
+    </script>
+</head>
+
+<body style="background-color: orange;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <div id="loaderdiv">
+        <div class="loader"> <img src="loading1.gif" class="loader-image" /> </div>
+    </div>
+    <div id="yorubacaptcha_image" style="width: 320px; height: 57px;">
+        <canvas id="captcha"></canvas>
+    </div>
+    
+    <div style="margin:10px;">
+        <button id='breakBtn' style='padding: 10px; width: 200px;background: blue;color: white;font-size: 20px;'>Break</button>
+    </div>
+    <p>Output: </p>
+    <div id="outputBox" style='width: 200px; height:40px;background: white;display: flex;justify-content: center;align-items: center;font-size: 120%;color: blue'>
+
+    </div>
+    <script type="text/javascript" src='jquery.js'></script>
+    <script type="text/javascript" src='vanilla-fontspy.js'></script>
+    <script type="text/javascript" src="Drawer.js"></script>
+    <script type="text/javascript" src="shared.js"></script>
+    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+    <script type="text/javascript">
+        
+        var startSolvingTime = startTimeRec();
+        var generate = function () {
+
+            //Generates the captcha function  
+            var captchatypes = [
+                'character_collapse_no_bg',
+                'character_collapse_no_bg',
+                'character_collapse_no_bg',
+                'character_collapse_no_bg',
+                'character_collapse_with_bg',
+                'character_collapse_with_bg_noise',
+                'text_distortion_no_bg',
+                'text_distortion_no_bg',
+                'text_distortion_with_bg',
+                'text_distortion_with_bg_noise',
+                'random_lines_no_bg',
+                'random_lines_with_bg',
+                'character_fragmentation_no_bg',
+                'character_fragmentation_with_bg',
+                'character_fragmentation_with_bg_noise',
+                'colored_texts',
+                'colored_texts',
+                'colored_texts',
+                'colored_texts',
+                'colored_texts',
+                'colored_texts_with_bg',
+                'background_noise_no_bg',
+                'coloured_background_noise_coloured_characters'
+            ];
+            var chars = "ṣtóyàeáuáiẹoóaísòdófṣdùtẹyìuáióoẹpìaísòdófí";
+            var words = [
+                'ṣtóyà',
+                'àeáuá',
+                'áiẹoó',
+                'óaísò',
+                'ófṣdù',
+                'ùtẹyì',
+                'ìuáió',
+                'óoẹpì',
+                'ìaísò',
+                'òdófí',
+                'óyàeá',
+                'ẹoóaí',
+                'ísòdó',
+                'ófṣdù'
+            ];
+            var captchastring = words[Math.floor(Math.random() * words.length)];
+            // console.log(randomWord)
+            // var string_length = 5;
+            // var captchastring = '';
+            // var rnum = Math.floor((Math.random() * chars.length)-string_length);
+            // rnum=rnum<0?0:rnum;
+            // captchastring += chars.substring(rnum,rnum+string_length);
+            // console.log(captchastring);
+
+            // document.getElementById("txtCaptcha").value = captchastring;
+            //document.getElementById("txtCaptchaDiv").innerHTML = captchastring;
+            //var captcha=new Drawer(document.getElementById("captcha"));
+            var captcha = new Drawer(document.getElementById('captcha'));
+            captcha.clear()
+
+            //captcha.drawDistortedText(captchastring);
+            var captchaType = captchatypes[Math.floor(Math.random() * captchatypes.length)];
+            console.log(captchaType)
+            drawCaptcha(captchaType, captcha, captchastring).then(function(){
+                $('#loaderdiv').hide()
+            }, function(err){
+                alert("Unable to draw captcha")
+            })
+            
+        };
+        generate();
+        document.getElementById('breakBtn').onclick = startOcr;
+        
+    </script>
+</body>
+
+</html>

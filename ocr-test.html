@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <h1>
+      This is a static template, there is no bundler or bundling involved!
+    </h1>
+    <!-- v2 -->
+    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+
+    <script>
+        const { createWorker } = Tesseract;
+        const worker = createWorker({
+            logger: (m) => console.log("worker logger: ", m)
+        });
+
+        (async () => {
+        await worker.load();
+        await worker.loadLanguage("eng");
+        await worker.initialize("eng");
+        const {
+            data: { text }
+        } = await worker.recognize(
+            "http://localhost:6793/download%20(3).png"
+        );
+        console.log("generated text",text);
+        await worker.terminate();
+        })();
+    </script>
+  </body>
+</html>
