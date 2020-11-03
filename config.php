@@ -1,7 +1,7 @@
 <?php
 $servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "password";
 $dbname = "captcha";
 $capchaMap = [
     'character_collapse_no_bg'=>'Character collapse no background',

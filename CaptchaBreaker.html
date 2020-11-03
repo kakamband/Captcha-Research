@@ -73,7 +73,8 @@
     <script type="text/javascript" src="shared.js"></script>
     <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
     <script type="text/javascript">
-        
+        var generatedCaptcha = "";
+        var captchaType;
         var startSolvingTime = startTimeRec();
         var generate = function () {
 
@@ -121,6 +122,7 @@
                 'ófṣdù'
             ];
             var captchastring = words[Math.floor(Math.random() * words.length)];
+            generatedCaptcha= captchastring;
             // console.log(randomWord)
             // var string_length = 5;
             // var captchastring = '';
@@ -136,7 +138,7 @@
             captcha.clear()
 
             //captcha.drawDistortedText(captchastring);
-            var captchaType = captchatypes[Math.floor(Math.random() * captchatypes.length)];
+            captchaType = captchatypes[Math.floor(Math.random() * captchatypes.length)];
             console.log(captchaType)
             drawCaptcha(captchaType, captcha, captchastring).then(function(){
                 $('#loaderdiv').hide()

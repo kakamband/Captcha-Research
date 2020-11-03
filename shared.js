@@ -203,11 +203,37 @@ function startOcr() {
       image.src
     );
     console.log("generated text", text);
+    var solvingTime = endTimeRec(startSolvingTime);
     if(text)
     {
-      document.getElementById('outputBox').innerHTML = text;
+      if(generatedCaptcha !== text){
+        document.getElementById('outputBox').innerHTML = "Unable to break captcha";
+        $.post('save_breaker.php', {
+          'status' : 'Failed to break captcha',
+          'captcha_type': captchaType,
+          solving_time: solvingTime,
+          response_time: solvingTime
+        });
+        
+      }
+      else{
+        document.getElementById('outputBox').innerHTML = text;
+        $.post('save_breaker.php', {
+          'status' : 'Breaking successful',
+          'captcha_type': captchaType,
+          solving_time: solvingTime,
+          response_time: solvingTime
+        });
+      }
+      
     }
     else{
+      $.post('save_breaker.php', {
+        'status' : 'Failed to break captcha',
+        'captcha_type': captchaType,
+        solving_time: solvingTime,
+        response_time: solvingTime
+      });
       document.getElementById('outputBox').innerHTML = "No charaters recognized";
     }
     await worker.terminate();
