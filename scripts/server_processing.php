@@ -38,7 +38,11 @@ $columns = array(
     }),
     array('db' => 'response_time',     'dt' => 3, 'formatter' => function ($d, $row) use ($capchaMap) {
         return $d." milliseconds";
-    })
+    }),
+    array('db' => 'status',     'dt' => 4, 'formatter' => function ($d, $row) use ($capchaMap) {
+        return $d ?? 'solved';
+    }),
+
 );
 
 // SQL server connection information

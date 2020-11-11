@@ -84,6 +84,7 @@
                     <th>Captcha Name</th>
                     <th>Solving Time</th>
                     <th>Response Time</th>
+                    <th>Status</th>
                 </tr>
             </thead>
         </table>

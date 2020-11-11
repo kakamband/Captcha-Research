@@ -179,13 +179,25 @@
                                             $.post('save.php', {
                                                 'captcha_type': captchaType,
                                                 solving_time: solvingTime,
-                                                response_time: responseTime
+                                                response_time: responseTime,
+                                                status: 'solved'
                                             }).then(() => {
                                                 document.location = `SolvedMessage.html?captcha_type=${captchaType}&solving_time=${solvingTime}&response_time=${responseTime}`;
                                             })
 
                                             return false;
                                         } else {
+                                            var solvingTime = endTimeRec(startSolvingTime);
+                                            var responseTime = endTimeRec(startResponseTime);
+                                            console.log(`Response time ${responseTime} Millisecond(s)`)
+                                            console.log(`Solving time ${solvingTime} Millisecond(s)`)
+                                            $.post('save.php', {
+                                                'captcha_type': captchaType,
+                                                solving_time: solvingTime,
+                                                response_time: responseTime,
+                                                status: 'unable to solve'
+                                            })
+                                            startSolvingTime = startTimeRec();
                                             return false;
                                         }
                                     };

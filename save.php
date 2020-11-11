@@ -8,9 +8,10 @@ try {
     $captcha_type = $_POST['captcha_type'];
     $solving_time = $_POST['solving_time'];
     $response_time = $_POST['response_time'];
+    $status = $_POST['status'];
 
-    $sql = "INSERT INTO challenges (captcha_type, solving_time, response_time)
-    VALUES ('{$captcha_type}', '{$solving_time}', '{$response_time}')";
+    $sql = "INSERT INTO challenges (captcha_type, solving_time, response_time, status)
+    VALUES ('{$captcha_type}', '{$solving_time}', '{$response_time}', '{$status}')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";
